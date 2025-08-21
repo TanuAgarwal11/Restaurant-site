@@ -1,0 +1,854 @@
+/* ---------- RESET ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Playfair Display", serif;
+}
+
+body {
+  margin: 0;
+  background: #fff;
+  padding-top: 100px;
+}
+
+/* ---------- NAVBAR ---------- */
+header nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: white;
+  padding: 15px 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.nav-bar {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: flex-start;
+}
+
+/* Logo */
+.nav-bar img {
+  height: 70px;
+  width: auto;
+  margin-left: 15px;
+}
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.hamburger span {
+  height: 3px;
+  width: 25px;
+  background-color: #222;
+  border-radius: 2px;
+}
+
+/* Show hamburger on mobile */
+@media screen and (max-width: 768px) {
+  .hamburger {
+    display: flex;
+    margin-left: auto;
+  }
+  .nav-bar ul {
+    display: none; /* hide menu initially */
+    flex-direction: column;
+    width: 100%;
+    background: white;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    gap: 15px;
+    padding: 15px 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-top: 1px solid #ddd;
+  }
+  .nav-bar ul.active {
+    display: flex;
+  }
+}
+
+/* Navigation menu */
+.nav-bar ul {
+  list-style: none;
+  display: flex;
+  gap: 50px;
+  margin-left: auto;
+  margin-right: 40px;
+}
+
+.nav-bar ul li {
+  position: relative;
+}
+
+.nav-bar ul li a {
+  text-decoration: none;
+  color: black;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 6px 10px;
+  transition: all 0.3s ease;
+}
+
+/* Hover effect */
+.nav-bar ul li a:hover {
+  color: #d4af37;
+  border-bottom: 2px solid #d4af37;
+}
+
+/* ---------- HOME SECTION ---------- */
+#home {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  background-size: cover;
+  background-position: center;
+  transition: background-image 1s ease-in-out; /* smooth fade */
+}
+
+.home-content {
+  padding: 20px 40px;
+  border-radius: 12px;
+  max-width: 700px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.home-heading {
+  font-size: 44px;
+  margin-bottom: 15px;
+  font-weight: bolder;
+}
+
+.home-para {
+  font-size: 22px;
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---------- ABOUT US SECTION ---------- */
+.about-section {
+  padding: 80px 10%;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+}
+
+.about-container {
+  display: flex;
+  align-items: stretch; /* images + content same height */
+  gap: 50px;
+  flex-wrap: wrap;
+}
+
+/* IMAGE GRID */
+.about-images {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.about-images img {
+  width: 100%;
+  height: 250px; /* same height for all images */
+  object-fit: cover;
+  border-radius: 15px;
+  transition: transform 0.3s ease;
+}
+
+.about-images img:hover {
+  transform: scale(1.05);
+}
+
+/* CONTENT AREA */
+.about-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.about-content h2 {
+  font-size: 40px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: #2c3e50;
+}
+
+.about-content h3 {
+  font-size: 20px;
+  color: #b57105;
+  margin-top: 20px;
+  text-transform: uppercase;
+}
+
+.about-content p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #555;
+  margin-top: 10px;
+}
+
+/* RESERVATIONS & EVENTS SECTION */
+.reservations-container {
+  width: 100%;
+  margin-top: 10px;
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.reservations-content h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 20px;
+  position: relative;
+  display: inline-block;
+}
+
+.reservations-content h2::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  margin: 12px auto 0;
+}
+
+.reservations-content p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  max-width: 750px;
+  margin: 0 auto;
+  color: #555;
+}
+
+/* CONTACT WITH US SECTION */
+.about-contact-container {
+  width: 100%;
+  padding: 20px 10px;
+  text-align: center;
+}
+
+.about-contact-container h3 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #2c3e50;
+  position: relative;
+  display: inline-block;
+}
+
+.about-contact-container h3::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 2px;
+  margin: 10px auto 0;
+}
+
+/* Contact Icons */
+.contact-images {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.contact-images a img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.contact-images a img:hover {
+  transform: scale(1.2);
+  filter: brightness(1.2);
+}
+
+/* ---------- Our Restaurant Section ---------- */
+.restaurant-container {
+  background-color: rgb(241, 241, 241);
+}
+
+/* Section Titles */
+.section-subtitle {
+  color: #b57105;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.section-title {
+  font-size: 40px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #222;
+}
+
+/* Container Layout */
+.restaurant-container {
+  text-align: center;
+  padding: 60px 10%;
+}
+
+.restaurant-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+/* Restaurant Box */
+.restaurant-box {
+  width: 48%;
+  min-width: 500px;
+  padding: 25px;
+  text-align: left;
+  transition: transform 0.3s ease;
+}
+
+.restaurant-box:hover {
+  transform: translateY(-5px);
+}
+
+/* Restaurant Heading */
+.restaurant-heading {
+  font-size: 20px;
+  font-weight: bold;
+  color: black;
+  padding: 12px 18px;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+/* Image Box */
+.image-box {
+  width: 100%;
+  height: 380px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 1s ease-in-out;
+}
+
+/* Paragraph */
+.restaurant-box p {
+  font-size: 18px;
+  line-height: 1.7;
+  color: #444;
+}
+/* ---------- Buffet Section ---------- */
+.buffet-container {
+  background-color: white;
+  text-align: center;
+  padding: 60px 10%;
+}
+
+.buffet-heading {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #222;
+}
+
+.buffet-intro {
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+.buffet-image-box {
+  width: 100%;
+  max-width: 800px;
+  height: 350px;
+  margin: 0 auto 30px;
+  overflow: hidden;
+}
+
+.buffet-image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 1s ease-in-out;
+}
+
+.buffet-content {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #444;
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+/* Buffet Highlights Grid */
+.buffet-menu {
+  margin: 40px 0;
+}
+
+.buffet-menu h3 {
+  font-size: 26px;
+  margin-bottom: 20px;
+  color: #b57105;
+  text-align: center;
+}
+
+.buffet-menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.buffet-item {
+  background: #fff;
+  padding: 15px 20px;
+  border-radius: 10px;
+  font-size: 16px;
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.buffet-item:hover {
+  transform: translateY(-5px);
+}
+
+/* Buffet Timings & Prices */
+.buffet-details {
+  margin: 30px 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.buffet-detail-box {
+  background: #fff;
+  padding: 18px 25px;
+  border-radius: 10px;
+  font-size: 18px;
+  color: #444;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.buffet-detail-box:hover {
+  transform: scale(1.05);
+}
+
+/* Highlight Price Box */
+.buffet-detail-box.price {
+  background: #b57105;
+  color: #fff;
+  font-weight: bold;
+}
+
+.buffet-btn .btn {
+  display: inline-block;
+  padding: 12px 25px;
+  background-color: #b57105;
+  color: #fff;
+  font-size: 18px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.buffet-btn .btn:hover {
+  background-color: #8a4c02;
+}
+
+@media screen and (max-width: 480px) {
+  #banquets {
+    height: auto;
+    padding: 40px 15px;
+  }
+}
+
+/* ---------- Special Seating Section ---------- */
+
+/* Special Seating Section */
+.special-seating-container {
+  background-color: #f9f9f9;
+  padding: 60px 10%;
+  text-align: center;
+}
+
+/* Title */
+.special-seating-title {
+  font-size: 36px;
+  font-weight: bold;
+  color: #222;
+  margin-bottom: 20px;
+}
+
+.section-intro {
+  font-size: 18px;
+  color: #555;
+  max-width: 800px;
+  margin: 0 auto 40px auto;
+  line-height: 1.7;
+}
+
+/* Seating Layout */
+.seating-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+/* Seating Boxes */
+.seating-box {
+  background: #fff;
+  padding: 20px;
+  width: 45%;
+  min-width: 320px;
+  border-radius: 14px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: left;
+}
+
+.seating-box:hover {
+  transform: translateY(-8px);
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Image Styling */
+.seating-box img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  transition: transform 0.4s ease;
+}
+
+.seating-box:hover img {
+  transform: scale(1.05);
+}
+
+/* Seating Titles */
+.seating-box h3 {
+  font-size: 22px;
+  font-weight: 600;
+  color: #b57105;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Seating Paragraph */
+.seating-box p {
+  font-size: 18px;
+  color: #444;
+  line-height: 1.6;
+}
+
+/* ---------- Banquets Section ---------- */
+#banquets {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* full screen height (adjust if needed) */
+  overflow: hidden;
+}
+
+#banquets img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* makes the image behave like a background cover */
+  display: block;
+}
+
+.banquet-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.75); /* dark overlay for text readability */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+}
+
+.banquet-content {
+  color: #fff;
+  max-width: 800px;
+}
+
+.banquet-content h2 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.banquet-content p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.banquet-btn {
+  display: inline-block;
+  padding: 12px 25px;
+  background: #b57105;
+  color: #000;
+  font-weight: bold;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.banquet-btn:hover {
+  background: #fff;
+  color: #d4af37;
+}
+
+/* ---------- Contact Us Section ---------- */
+#contact-us {
+  /* background: linear-gradient(to right, #f8f9fa, #e9ecef);  */
+  padding: 80px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact-container {
+  padding: 40px;
+  max-width: 600px;
+  width: 100%;
+  text-align: center;
+}
+
+.contact-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.contact-subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  color: #666;
+}
+
+.contact-container input,
+.contact-container textarea {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.contact-container input:focus,
+.contact-container textarea:focus {
+  border-color: #d4af37; /* Golden highlight */
+  box-shadow: 0 0 8px rgba(212, 175, 55, 0.3);
+}
+
+.contact-container textarea {
+  min-height: 120px;
+  resize: none;
+}
+
+.contact-container button {
+  background: #d4af37;
+  color: #fff;
+  padding: 15px 30px;
+  border: 1px solid #ccc;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.contact-container button:hover {
+  background: white;
+  border-color: #d4af37; /* Golden highlight */
+  color: #d4af37;
+}
+
+/* ---------- Footer Section ---------- */
+#footer {
+  background: #020b11; /* Dark navy background */
+  color: #fff;
+  font-family: "Arial", sans-serif;
+  position: relative;
+}
+
+/* Top Section */
+.footer-top {
+  text-align: center;
+  padding: 40px 20px 25px;
+}
+
+.footer-logo img {
+  width: 200px;
+  height: 80px;
+  border-radius: 6px;
+  background: #fff;
+  padding: 8px;
+  margin-bottom: 15px;
+  box-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
+}
+
+.footer-contact p {
+  margin: 6px 0;
+  font-size: 16px;
+  color: #ddd;
+}
+
+.footer-contact i {
+  color: #f7a826; /* Golden icons */
+  margin-right: 10px;
+  font-size: 18px;
+}
+
+/* Bottom Section */
+.footer-bottom {
+  background: #111a1d;
+  text-align: center;
+  padding: 15px 20px;
+  font-size: 14px;
+  color: #bbb;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-bottom i {
+  margin-right: 8px;
+  color: #f7a826;
+}
+
+.footer-contact span.material-symbols-outlined,
+.footer-bottom span.material-symbols-outlined {
+  font-size: 18px; /* match text size */
+  vertical-align: middle; /* align with text baseline */
+  margin-right: 8px; /* spacing between icon and text */
+  color: #f7a826; /* same golden color as your old <i> icons */
+}
+
+/* ---------- MEDIA QUERIES ---------- */
+@media screen and (max-width: 1024px) {
+  .nav-bar ul {
+    gap: 20px;
+  }
+
+  .about-images {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .restaurant-box {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .nav-bar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-bar ul {
+    flex-direction: column;
+    width: 100%;
+    gap: 15px;
+    margin: 10px 0 0 0;
+  }
+
+  #home {
+    height: 80vh;
+  }
+
+  .home-heading {
+    font-size: 28px;
+  }
+
+  .home-para {
+    font-size: 16px;
+  }
+
+  .about-container {
+    flex-direction: column;
+  }
+
+  .about-images {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .seating-box {
+    max-width: 100%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .home-heading {
+    font-size: 22px;
+  }
+
+  .home-para {
+    font-size: 14px;
+  }
+
+  .restaurant-heading {
+    font-size: 16px;
+  }
+
+  .seating-box h3 {
+    font-size: 18px;
+  }
+
+  .buffet-heading {
+    font-size: 24px;
+  }
+
+  .buffet-intro {
+    font-size: 14px;
+  }
+}
